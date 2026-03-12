@@ -1,3 +1,29 @@
+//Mudança de tema escuro / claro:
+
+let darkMode = localStorage.getItem('darkMode')
+const mudancaTema = document.getElementById('mudancaTema')
+
+const enabledarkMode = () => {
+    document.body.classList.add('darkMode')
+    localStorage.setItem('darkMode', 'active')
+}
+
+const disabledarkMode = () => {
+    document.body.classList.remove('darkMode')
+    localStorage.setItem('darkMode', null)
+}
+
+if (darkMode === "active") enabledarkMode()
+
+mudancaTema.addEventListener("click", () => {
+    darkMode = localStorage.getItem('darkMode')
+    darkMode !== "active" ? enabledarkMode() : disabledarkMode()
+})
+
+
+
+//Sistema de Login:
+
 const form = document.getElementById("loginForm")
 
 form.addEventListener("submit", function(event){
@@ -15,7 +41,7 @@ if(username === usuarioCorreto && password === senhaCorreta){
 
 alert("Login correto!")
 
-window.location.href = "rec_senha.html"
+window.location.href = "pagina_inicial.html"
 
 }else{
 

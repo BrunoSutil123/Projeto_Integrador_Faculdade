@@ -31,6 +31,77 @@ body {
     --cor_VariacaoBtn: rgb(192, 128, 0);
 }
 
+/*Animação geral*/
+
+@keyframes Aparecer {
+    0%{
+
+    }
+    100%{
+        
+    }
+}
+
+
+
+/*Cabeçalho*/
+
+#cabecalho{
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+
+    background-color: var(--fundo);
+}
+
+
+/*Mudança de tema claro/escuro*/
+
+#mudancaTema {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    margin-left: 20px;
+
+    border-radius: 50px;
+    border: none;
+    background-color: var(--cor_btn);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#mudancaTema svg {
+    fill: rgb(255, 255, 255);
+}
+
+#mudancaTema svg:last-child {
+    display: none;
+}
+
+.whitemode #mudancaTema svg:first-child {
+    display: none;
+}
+
+.whitemode #mudancaTema svg:last-child {
+    display: block;
+}
+
+#mudancaTema:hover {
+    background-color: var(--cor_VariacaoBtn);
+}
+
+#mudancaTema:active {
+    transform: scale(0.95);
+}
+
+
+/*------------------------MAIN------------------------*/
+
 .principal {
     display: flex;
     flex-direction: column;
@@ -38,7 +109,7 @@ body {
     justify-content: center;
 
     gap: 30px;
-    height: 100vh;
+    height: 90vh;
     padding: 20px;
     background-color: var(--fundo);
 
@@ -55,7 +126,7 @@ body {
         object-fit: contain;
 
         @media screen and (min-width: 1100px) {
-            height: 300px;
+            height: 350px;
         }
     }
 }
@@ -208,9 +279,6 @@ body {
                     transform: scale(0.98);
                 }
             }
-
-
-
         }
     }
 }

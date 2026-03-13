@@ -83,11 +83,11 @@ body {
     display: none;
 }
 
-.whitemode #mudancaTema svg:first-child {
+.darkMode #mudancaTema svg:first-child {
     display: none;
 }
 
-.whitemode #mudancaTema svg:last-child {
+.darkMode #mudancaTema svg:last-child {
     display: block;
 }
 

@@ -26,27 +26,30 @@ mudancaTema.addEventListener("click", () => {
 
 const form = document.getElementById("loginForm")
 
-form.addEventListener("submit", function(event){
+form.addEventListener("submit", function (event) {
 
-event.preventDefault()
+    event.preventDefault()
 
-const username = document.getElementById("username").value
-const password = document.getElementById("password").value
+    const username = document.getElementById("username").value
+    const password = document.getElementById("password").value
 
-//Login e senha
-const usuarioCorreto = "admin"
-const senhaCorreta = "123456"
+    //Login e senha
+    const usuarioCorreto = "admin"
+    const senhaCorreta = "123456"
 
-if(username === usuarioCorreto && password === senhaCorreta){
+    if (username === usuarioCorreto && password === senhaCorreta) {
 
-alert("Login correto!")
+        localStorage.setItem("auth", "true")
+        localStorage.setItem("username", username);
 
-window.location.href = "pagina_inicial.html"
+        alert("Login correto!")
 
-}else{
+        window.location.href = "dashboard.html"
 
-alert("Usuário ou senha incorretos!!!")
+    } else {
 
-}
+        alert("Usuário ou senha incorretos!!!")
+
+    }
 
 })

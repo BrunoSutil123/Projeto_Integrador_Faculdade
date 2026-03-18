@@ -48,8 +48,8 @@ body {
 
 #cabecalho{
     padding: 5px;
-    display: flex;
-    justify-content: flex-end;
+    position: fixed;
+    top: 90vh;
 
     background-color: var(--fundo);
 }
@@ -109,7 +109,7 @@ body {
     justify-content: center;
 
     gap: 30px;
-    height: 90vh;
+    height: 100vh;
     padding: 20px;
     background-color: var(--fundo);
 

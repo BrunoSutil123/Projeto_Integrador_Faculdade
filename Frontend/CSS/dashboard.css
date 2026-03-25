@@ -4,18 +4,14 @@
     box-sizing: border-box;
 }
 
-/*min 320px - celular
-
-768px
-1100px*/
-
+/*min 320px - celular 768px 1100px*/
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
     --fundo: rgba(247, 247, 247, 1);
-    --fundo_cabecalho: rgba(255, 255, 255, 0.4);
+    --fundo_cabecalho: rgb(218, 218, 218);
     --cor_texto: black;
     --cor_input: rgba(255, 213, 132, 1);
     --cor_btn: rgba(240, 168, 28, 1);
@@ -36,16 +32,12 @@ body {
     height: 30px;
     width: 30px;
     padding: 0;
-    margin-left: 20px;
-
     border-radius: 50px;
     border: none;
     background-color: var(--cor_btn);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 0.3s;
     cursor: pointer;
 }
@@ -76,10 +68,8 @@ body {
 }
 
 /*-----------------------------------------*/
-
 .NavList {
     :is(svg) {
-        color: black;
         height: 20px;
     }
 }
@@ -107,7 +97,6 @@ body {
     fill: rgb(0, 0, 0);
 }
 
-
 /*Cabeçalho*/
 .cabecalho {
     background-color: var(--fundo_cabecalho);
@@ -116,34 +105,60 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-
     padding: 10px;
-}
 
+    :is(picture) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        gap: 5px;
+    }
+}
 
 .cabecalho .nav-links {
     display: none;
+    justify-content: space-between;
     flex-direction: column;
-
     background-color: var(--fundo_cabecalho);
-    backdrop-filter: blur(10px);
-
-    border-radius: 50px;
+    border-radius: 10px;
     margin-bottom: 5px;
-
-    height: 90vh;
+    gap: 5px;
+    height: 60vh;
     position: absolute;
     top: 60px;
-    padding: 10px;
-
+    padding: 10px 0 10px 10px;
     list-style: none;
 
+    #logoNav {
+        width: 100px;
+    }
+
+    :is(li) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3px;
+        padding: 5px;
+        border-radius: 3px 0 0px 3px;
+    }
+
+    :is(li):hover {
+        background-color: var(--fundo);
+    }
+
     :is(a) {
+        margin-right: 10px;
         color: var(--cor_texto);
         text-decoration: none;
         font-size: 12px;
     }
 
+    .configNav {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 10px;
+    }
 }
 
 .cabecalho .nav-links.active {
@@ -163,17 +178,12 @@ body {
     font-size: 13px;
 }
 
-
-
-
 /*Principal:*/
-
 .principal {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 30px;
     height: 100vh;
     padding: 20px;

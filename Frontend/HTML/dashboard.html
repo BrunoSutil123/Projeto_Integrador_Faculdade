@@ -22,9 +22,24 @@
             </button>
 
             <ul class="nav-links" id="nav-links">
-                <div class="listas&Logo">
+
+                <div class="listas-Logo">
                     <img id="logoNav" src="../IMG/logo_cliente_B.png" alt="Logo da clinete">
-                    <li class="NavList">
+
+
+                    <!--Mudar as listas, colocar a tag a par englobar tudo.-->
+                    <li class="NavList" id="inicio">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-house-icon lucide-house">
+                            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                            <path
+                                d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        </svg>
+                        <a href="#">Início</a>
+                    </li>
+
+                    <li class="NavList" id="produtos">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-tags-icon lucide-tags">
@@ -36,7 +51,7 @@
                         <a href="#">Produtos</a>
                     </li>
 
-                    <li class="NavList">
+                    <li class="NavList" id="estoque">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-shelving-unit-icon lucide-shelving-unit">
@@ -51,7 +66,7 @@
                         <a href="#">Estoque</a>
                     </li>
 
-                    <li class="NavList">
+                    <li class="NavList" id="vendas">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-hand-coins-icon lucide-hand-coins">
@@ -65,7 +80,7 @@
                         <a href="#">Vendas</a>
                     </li>
 
-                    <li class="NavList">
+                    <li class="NavList" id="clientes">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-book-user-icon lucide-book-user">
@@ -77,7 +92,7 @@
                         <a href="#">Clientes</a>
                     </li>
 
-                    <li class="NavList">
+                    <li class="NavList" id="fornecedores">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-truck-icon lucide-truck">
@@ -90,7 +105,7 @@
                         <a href="#">Fornecedores</a>
                     </li>
 
-                    <li class="NavList">
+                    <li class="NavList" id="relatorios">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-form-icon lucide-form">
@@ -102,7 +117,7 @@
                         <a href="#">Relatórios</a>
                     </li>
 
-                    <li class="NavList">
+                    <li class="NavList" id="configuracoes">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-cog-icon lucide-cog">
@@ -147,8 +162,8 @@
                 </div>
             </ul>
         </nav>
-        <picture> <svg id="imgUser" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px"
-                fill="#e3e3e3">
+        <picture>
+            <svg id="imgUser" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                 <path
                     d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm146.5-204.5Q340-521 340-580t40.5-99.5Q421-720 480-720t99.5 40.5Q620-639 620-580t-40.5 99.5Q539-440 480-440t-99.5-40.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z" />
             </svg>

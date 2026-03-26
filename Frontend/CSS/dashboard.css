@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 /*min 320px - celular 768px 1100px*/
 
 body {
@@ -14,7 +13,8 @@ body {
 :root {
     --fundo: rgba(247, 247, 247, 1);
     --fundo_cabecalho: rgb(218, 218, 218);
-    --cor_texto: black;
+    --cor_texto: rgb(12, 12, 12);
+    --cor_titulo: black;
     --cor_input: rgba(255, 213, 132, 1);
     --cor_btn: rgba(240, 168, 28, 1);
     --hoverBtn: rgb(156, 156, 156);
@@ -25,6 +25,7 @@ body {
     --fundo: rgba(64, 64, 64, 1);
     --fundo_cabecalho: rgba(43, 43, 43, 0.4);
     --cor_texto: rgb(227, 227, 227);
+    --cor_titulo: rgb(255, 255, 255);
     --cor_input: rgba(255, 213, 132, 1);
     --cor_btn: rgba(240, 168, 28, 1);
     --hoverBtn: rgb(94, 94, 94);
@@ -98,8 +99,19 @@ body {
         padding: 10px 10px 10px 0;
     }
 
+    .navegacao {
+        display: flex;
+        align-items: center;
+        
+        #titulo {
+            color: var(--cor_texto);
+            font-size: 24px;
+            margin-left: 15px;
+        }
+    }
+
     .hamburger {
-        /*hamburguer menu icon*/
+        /*hamburguer menu button*/
         display: block;
 
         font-size: 24px;
@@ -113,8 +125,7 @@ body {
             display: none;
         }
 
-
-        #iconMenu {
+        #iconMenu { /*hamburguer menu icon*/
             display: flex;
             align-items: center;
             width: 24px;
@@ -126,7 +137,6 @@ body {
             }
         }
     }
-
     .hamburger:hover {
         background-color: var(--hoverBtn);
         border-radius: 50px;
@@ -146,7 +156,7 @@ body {
         height: 70vh;
 
         position: absolute;
-        top: 60px;
+        top: 65px;
         padding: 10px 0 10px 10px;
 
         list-style: none;
@@ -161,7 +171,7 @@ body {
             }
         }
 
-        .listas-Logo {
+        .listas-Logo { /*div para estilização específica*/
             display: flex;
             flex-direction: column;
 
@@ -196,11 +206,9 @@ body {
             transition: 0.3s;
 
         }
-
         .NavList:hover {
             background-color: var(--fundo);
         }
-
         .NavList:active {
             transform: scale(0.95);
         }
@@ -260,17 +268,14 @@ body {
                 transition: 0.3s;
                 cursor: pointer;
             }
-
             #exitCount:hover {
                 background-color: var(--cor_VariacaoBtn);
             }
-
             #exitCount:active {
                 transform: scale(0.95);
             }
         }
     }
-
     .nav-links.active {
         /*Aparece navegação quando clica*/
         display: flex;
@@ -305,6 +310,7 @@ body {
         }
     }
 }
+
 
 /*--------------------------------------------------------*/
 

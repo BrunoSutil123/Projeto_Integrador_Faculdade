@@ -4,7 +4,6 @@ if (auth !== "true") {
     window.location.href = "login.html"
 }
 
-
 //Logout...
 const btnSair = document.getElementById("exitCount");
 btnSair.addEventListener("click", function () {

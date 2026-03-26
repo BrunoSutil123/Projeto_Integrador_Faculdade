@@ -179,33 +179,41 @@ body {
         }
 
         .NavList {
-            /*Elementos da lista de navegação*/
+            /*tag a de ancora da navegação*/
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 3px;
+
+            text-decoration: none;
+            color:var(--cor_texto);
+
             padding: 5px;
+            padding-right: 15px;
+             gap: 10px;
             border-radius: 3px 0 0px 3px;
 
             cursor: pointer;
+            transition: 0.3s;
 
-            :is(svg) {
-                height: 20px;
-
-                @media screen and (min-width: 768px) {
-                    height: 25px;
-                }
-            }
         }
 
         .NavList:hover {
             background-color: var(--fundo);
         }
 
-        :is(a) {
-            margin-right: 10px;
+        .NavList:active {
+            transform: scale(0.95);
+        }
+
+        /*Elemento da lista de navegação*/
+        .ListElement {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 5px;
+
             color: var(--cor_texto);
-            text-decoration: none;
             font-size: 12px;
 
             @media screen and (min-width: 768px) {
@@ -213,6 +221,14 @@ body {
 
                 @media screen and (min-width: 1100px) {
                     font-size: 16px;
+                }
+            }
+
+            :is(svg) {
+                height: 20px;
+
+                @media screen and (min-width: 768px) {
+                    height: 25px;
                 }
             }
         }

@@ -33,23 +33,27 @@ form.addEventListener("submit", function (event) {
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
 
-    //Login e senha
-    const usuarioCorreto = "admin"
-    const senhaCorreta = "123456"
 
-    if (username === usuarioCorreto && password === senhaCorreta) {
+
+    // Simulação de usuários
+    if (username === "admin" && password === "123456") {
 
         localStorage.setItem("auth", "true")
-        localStorage.setItem("username", username);
+        localStorage.setItem("username", username)
+        localStorage.setItem("role", "admin")
 
-        alert("Login correto!")
+        window.location.href = "dashboard.html"
+
+    } else if (username === "vendedora" && password === "123456") {
+
+        localStorage.setItem("auth", "true")
+        localStorage.setItem("username", username)
+        localStorage.setItem("role", "vendedora")
 
         window.location.href = "dashboard.html"
 
     } else {
-
-        alert("Usuário ou senha incorretos!!!")
-
+        alert("Usuário ou senha incorretos!")
     }
 
 })

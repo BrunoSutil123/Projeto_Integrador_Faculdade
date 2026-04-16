@@ -165,7 +165,9 @@ body {
             height: 80vh;
 
             @media screen and (min-width: 1100px) {
-                display: block;
+                display: flex;
+
+                justify-content: space-between;
                 border-radius: 0 10px 10px 0;
                 height: 90vh;
             }
@@ -251,10 +253,6 @@ body {
             display: flex;
             justify-content: space-between;
             margin-right: 10px;
-
-            @media screen and (min-width: 1100px) {
-                margin-top: 140px;
-            }
 
             #exitCount {
                 /*Botão sair - logout*/

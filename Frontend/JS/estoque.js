@@ -51,3 +51,24 @@ hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
 
+
+//Permições de menu ativas/desativadas
+const role = localStorage.getItem("role");
+
+// Elementos do menu
+const produtos = document.getElementById("produtos");
+const estoque = document.getElementById("Estoque");
+const vendas = document.getElementById("vendas");
+const clientes = document.getElementById("clientes");
+const fornecedores = document.getElementById("fornecedores");
+const relatorios = document.getElementById("relatorios");
+const configuracoes = document.getElementById("configuracoes");
+
+// Se for vendedora
+if (role === "vendedora") {
+
+    // Esconde o que ela NÃO pode acessar
+    fornecedores.style.display = "none";
+    relatorios.style.display = "none";
+    configuracoes.style.display = "none";
+}

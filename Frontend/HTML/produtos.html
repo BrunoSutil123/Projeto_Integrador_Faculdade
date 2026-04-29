@@ -198,6 +198,62 @@
 
     <main class="principal">
 
+        <section id="listaProdutos">
+            <div class="topo-produtos">
+                <h2>Produtos</h2>
+
+                <div class="acoes">
+                    <input type="text" placeholder="Buscar produto...">
+                    <button id="btnNovoProduto">+ Incluir Produto</button>
+                </div>
+            </div>
+
+            <table class="tabela-produtos">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>SKU</th>
+                        <th>Unidade</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbodyProdutos">
+                    <!-- JS vai preencher -->
+                </tbody>
+            </table>
+        </section>
+
+
+
+        <section id="cadastroProduto" style="display: none;">
+            <section id="cadastroProduto" style="display: none;">
+
+                <h2>Novo Produto</h2>
+
+                <form id="formProduto">
+
+                    <input type="text" id="nomeProduto" placeholder="Nome do Produto" required>
+
+                    <input type="text" id="sku" placeholder="Código (SKU)" required>
+
+                    <input type="text" id="unidade" placeholder="Unidade (ex: Unid.)">
+
+                    <input type="number" id="preco" placeholder="Preço" step="0.01">
+
+                    <input type="number" id="estoque" placeholder="Estoque">
+
+                    <div class="botoes">
+                        <button type="submit">Salvar</button>
+                        <button type="button" id="btnCancelar">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </section>
+        </section>
+
     </main>
 
 

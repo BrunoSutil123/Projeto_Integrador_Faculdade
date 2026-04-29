@@ -1,357 +1,345 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /*min 320px - celular 768px 1100px*/
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /*Tabela de cores com darkMode*/
 :root {
-    --fundo: rgba(247, 247, 247, 1);
-    --fundo_cabecalho: rgb(218, 218, 218);
-    --cor_texto: rgb(12, 12, 12);
-    --cor_titulo: black;
-    --cor_input: rgba(255, 213, 132, 1);
-    --cor_btn: rgba(240, 168, 28, 1);
-    --hoverBtn: rgb(156, 156, 156);
-    --cor_VariacaoBtn: rgb(192, 128, 0);
+  --fundo: rgba(247, 247, 247, 1);
+  --fundo_cabecalho: rgb(218, 218, 218);
+  --cor_texto: rgb(12, 12, 12);
+  --cor_titulo: black;
+  --cor_input: rgba(255, 213, 132, 1);
+  --cor_btn: rgba(240, 168, 28, 1);
+  --hoverBtn: rgb(156, 156, 156);
+  --cor_VariacaoBtn: rgb(192, 128, 0);
 }
 
 .darkMode {
-    --fundo: rgba(64, 64, 64, 1);
-    --fundo_cabecalho: rgba(43, 43, 43, 0.4);
-    --cor_texto: rgb(227, 227, 227);
-    --cor_titulo: rgb(255, 255, 255);
-    --cor_input: rgba(255, 213, 132, 1);
-    --cor_btn: rgba(240, 168, 28, 1);
-    --hoverBtn: rgb(94, 94, 94);
-    --cor_VariacaoBtn: rgb(192, 128, 0);
+  --fundo: rgba(64, 64, 64, 1);
+  --fundo_cabecalho: rgba(43, 43, 43);
+  --cor_texto: rgb(227, 227, 227);
+  --cor_titulo: rgb(255, 255, 255);
+  --cor_input: rgba(255, 213, 132, 1);
+  --cor_btn: rgba(240, 168, 28, 1);
+  --hoverBtn: rgb(94, 94, 94);
+  --cor_VariacaoBtn: rgb(192, 128, 0);
 }
 
 /*Estilização para mudança tema:*/
 #mudancaTema {
-    /*Botão de mudança*/
-    height: 30px;
-    width: 30px;
-    padding: 0;
-    border-radius: 50px;
-    border: none;
-    background-color: var(--cor_btn);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    cursor: pointer;
+  /*Botão de mudança*/
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--cor_btn);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
 
-    @media screen and (min-width: 768px) {
-        height: 40px;
-        width: 40px;
-    }
+  @media screen and (min-width: 768px) {
+    height: 40px;
+    width: 40px;
+  }
 
-    /*Transição entre modos claro e escuro:*/
-    :is(svg) {
-        fill: rgb(255, 255, 255);
-        height: 20px;
-    }
+  /*Transição entre modos claro e escuro:*/
+  :is(svg) {
+    fill: rgb(255, 255, 255);
+    height: 20px;
+  }
 
-    :is(svg):last-child {
-        display: none;
-    }
+  :is(svg):last-child {
+    display: none;
+  }
 }
 
 #mudancaTema:hover {
-    background-color: var(--cor_VariacaoBtn);
+  background-color: var(--cor_VariacaoBtn);
 }
 
 #mudancaTema:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 /*Aparece e desaparece*/
 .darkMode #mudancaTema svg:first-child {
-    display: none;
+  display: none;
 }
 
 .darkMode #mudancaTema svg:last-child {
-    display: block;
+  display: block;
 }
 
 /*-----------------------------------------*/
 
 /*Cabeçalho*/
 .cabecalho {
-    background-color: var(--fundo_cabecalho);
+  background-color: var(--fundo_cabecalho);
 
-    position: fixed;
+  position: fixed;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 10px;
+
+  @media screen and (min-width: 1100px) {
+    padding: 10px 10px 10px 0;
+  }
+
+  .navegacao {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
-    width: 100%;
-    padding: 10px;
+    #titulo {
+      color: var(--cor_texto);
+      font-size: 24px;
+      margin-left: 15px;
+    }
+  }
+
+  .hamburger {
+    /*hamburguer menu button*/
+    display: block;
+
+    font-size: 24px;
+    background: none;
+    border: none;
+    padding: 5px;
+
+    cursor: pointer;
 
     @media screen and (min-width: 1100px) {
-        padding: 10px 10px 10px 0;
+      display: none;
     }
 
-    .navegacao {
-        display: flex;
-        align-items: center;
-        
-        #titulo {
-            color: var(--cor_texto);
-            font-size: 24px;
-            margin-left: 15px;
-        }
+    #iconMenu {
+      /*hamburguer menu icon*/
+      display: flex;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+
+      @media screen and (min-width: 768px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  .hamburger:hover {
+    background-color: var(--hoverBtn);
+    border-radius: 50px;
+  }
+
+  .nav-links {
+    /*Lista de navegação*/
+    display: none;
+
+    justify-content: space-between;
+    flex-direction: column;
+
+    background-color: var(--fundo_cabecalho);
+    border-radius: 10px;
+
+    margin-bottom: 5px;
+    position: absolute;
+    top: 65px;
+    padding: 10px 0 10px 10px;
+
+    gap: 20px;
+
+    list-style: none;
+
+    @media screen and (min-width: 1100px) {
+      display: flex;
+
+      justify-content: space-between;
+      border-radius: 0 10px 10px 0;
+      height: 87vh;
     }
 
-    .hamburger {
-        /*hamburguer menu button*/
-        display: block;
+    .listas-Logo {
+      /*div para estilização específica*/
+      display: flex;
+      flex-direction: column;
 
-        font-size: 24px;
-        background: none;
-        border: none;
-        padding: 5px;
-
-        cursor: pointer;
-
-        @media screen and (min-width: 1100px) {
-            display: none;
-        }
-
-        #iconMenu { /*hamburguer menu icon*/
-            display: flex;
-            align-items: center;
-            width: 24px;
-            height: 24px;
-
-            @media screen and (min-width: 768px) {
-                width: 30px;
-                height: 30px;
-            }
-        }
-    }
-    .hamburger:hover {
-        background-color: var(--hoverBtn);
-        border-radius: 50px;
+      gap: 5px;
     }
 
-    .nav-links {
-        /*Lista de navegação*/
-        display: none;
+    #logoNav {
+      /*Logo Loja*/
+      width: 80px;
+      margin-right: 10px;
 
-        justify-content: space-between;
-        flex-direction: column;
+      @media screen and (min-width: 1100px) {
+        width: 130px;
+      }
+    }
 
-        background-color: var(--fundo_cabecalho);
-        border-radius: 10px;
+    .NavList {
+      /*tag a de ancora da navegação*/
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
 
-        margin-bottom: 5px;
-        height: 70vh;
+      text-decoration: none;
+      font-size: 12px;
+      color: var(--cor_texto);
 
-        position: absolute;
-        top: 65px;
-        padding: 10px 0 10px 10px;
+      padding: 5px;
+      padding-right: 15px;
+      gap: 10px;
+      border-radius: 3px 0 0px 3px;
 
-        list-style: none;
+      cursor: pointer;
+      transition: 0.3s;
+
+      @media screen and (min-width: 1100px) {
+        font-size: 16px;
+      }
+    }
+    .NavList:hover {
+      background-color: var(--fundo);
+    }
+    .NavList:active {
+      transform: scale(0.95);
+    }
+
+    /*Elemento da lista de navegação*/
+    .ListElement {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--cor_texto);
+
+      :is(svg) {
+        height: 16px;
 
         @media screen and (min-width: 768px) {
-            height: 80vh;
+          height: 18px;
 
-            @media screen and (min-width: 1100px) {
-                display: flex;
-
-                justify-content: space-between;
-                border-radius: 0 10px 10px 0;
-                height: 90vh;
-            }
+          @media screen and (min-width: 1100px) {
+            height: 20px;
+          }
         }
-
-        .listas-Logo { /*div para estilização específica*/
-            display: flex;
-            flex-direction: column;
-
-            gap: 5px;
-        }
-
-        #logoNav {
-            /*Logo Loja*/
-            width: 100px;
-            margin-right: 10px;
-
-            @media screen and (min-width: 768px) {
-                width: 130px;
-            }
-        }
-
-        .NavList {
-            /*tag a de ancora da navegação*/
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            text-decoration: none;
-            color:var(--cor_texto);
-
-            padding: 5px;
-            padding-right: 15px;
-             gap: 10px;
-            border-radius: 3px 0 0px 3px;
-
-            cursor: pointer;
-            transition: 0.3s;
-
-        }
-        .NavList:hover {
-            background-color: var(--fundo);
-        }
-        .NavList:active {
-            transform: scale(0.95);
-        }
-
-        /*Elemento da lista de navegação*/
-        .ListElement {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 5px;
-
-            color: var(--cor_texto);
-            font-size: 12px;
-
-            @media screen and (min-width: 768px) {
-                font-size: 14px;
-
-                @media screen and (min-width: 1100px) {
-                    font-size: 16px;
-                }
-            }
-
-            :is(svg) {
-                height: 20px;
-
-                @media screen and (min-width: 768px) {
-                    height: 25px;
-                }
-            }
-        }
-
-        #configuracoes {
-            /*Mudar o id de acordo com a página*/
-            background-color: var(--fundo);
-        }
-
-        .configNav {
-            /*Campo de mudança de tema e btn sair*/
-            display: flex;
-            justify-content: space-between;
-            margin-right: 10px;
-
-            @media screen and (min-width: 1100px) {
-                margin-top: 140px;
-            }
-
-            #exitCount {
-                /*Botão sair - logout*/
-                border: none;
-                border-radius: 5px;
-                background-color: var(--cor_btn);
-
-                font-size: 13px;
-                padding: 3px 7px;
-
-                transition: 0.3s;
-                cursor: pointer;
-            }
-            #exitCount:hover {
-                background-color: var(--cor_VariacaoBtn);
-            }
-            #exitCount:active {
-                transform: scale(0.95);
-            }
-        }
-    }
-    .nav-links.active {
-        /*Aparece navegação quando clica*/
-        display: flex;
+      }
     }
 
-    :is(picture) {
-        /*Foto User e nome*/
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        gap: 5px;
-
-        #imgUser {
-            width: 24px;
-            height: 24px;
-
-            @media screen and (min-width: 768px) {
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        #user-name {
-            /*Nome usuario logado*/
-            color: var(--cor_texto);
-            font-size: 13px;
-
-            @media screen and (min-width: 768px) {
-                font-size: 15px;
-            }
-        }
+    #configuracoes {
+      /*Mudar o id de acordo com a página*/
+      background-color: var(--fundo);
     }
+
+    .configNav {
+      /*Campo de mudança de tema e btn sair*/
+      display: flex;
+      justify-content: space-between;
+      margin-right: 10px;
+
+      #exitCount {
+        /*Botão sair - logout*/
+        border: none;
+        border-radius: 5px;
+        background-color: var(--cor_btn);
+
+        font-size: 13px;
+        padding: 3px 7px;
+
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      #exitCount:hover {
+        background-color: var(--cor_VariacaoBtn);
+      }
+      #exitCount:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+  .nav-links.active {
+    /*Aparece navegação quando clica*/
+    display: flex;
+  }
+
+  :is(picture) {
+    /*Foto User e nome*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    gap: 5px;
+
+    #imgUser {
+      width: 24px;
+      height: 24px;
+
+      @media screen and (min-width: 768px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    #user-name {
+      /*Nome usuario logado*/
+      color: var(--cor_texto);
+      font-size: 13px;
+
+      @media screen and (min-width: 768px) {
+        font-size: 15px;
+      }
+    }
+  }
 }
-
 
 /*--------------------------------------------------------*/
 
 /*Mudando a cor dos textos e dos ícones da navegação de acordo com o tema*/
 .darkMode :is(svg):first-child {
-    color: white;
+  color: white;
 }
 
 #iconMenu,
 #imgUser {
-    fill: rgb(0, 0, 0);
-    height: 20px;
+  fill: rgb(0, 0, 0);
+  height: 20px;
 }
 
 #imgUser:last-child {
-    display: none;
+  display: none;
 }
 
 .darkMode #iconMenu:first-child,
 .darkMode #imgUser:first-child {
-    fill: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
 }
 
 .darkMode #imgUse:last-child {
-    fill: rgb(0, 0, 0);
+  fill: rgb(0, 0, 0);
 }
 
 /*------------------------------------------*/
 
-
-
 /*Principal:*/
 .principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    height: 200vh;
-    padding: 20px;
-    background-color: var(--fundo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 200vh;
+  padding: 20px;
+  background-color: var(--fundo);
 }

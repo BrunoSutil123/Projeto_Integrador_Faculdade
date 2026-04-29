@@ -33,25 +33,26 @@ form.addEventListener("submit", function (event) {
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
 
-
-
     // Simulação de usuários
-    if (username === "admin" && password === "123456") {
+    if (username === "ana" && password === "123") {
+        localStorage.setItem("auth", "true");
+        localStorage.setItem("role", "vendedora");
+        localStorage.setItem("username", "Ana");
+        window.location.href = "dashboard.html";
+    }
 
-        localStorage.setItem("auth", "true")
-        localStorage.setItem("username", username)
-        localStorage.setItem("role", "admin")
+    else if (username === "fernanda" && password === "123") {
+        localStorage.setItem("auth", "true");
+        localStorage.setItem("role", "vendedora");
+        localStorage.setItem("username", "Fernanda");
+        window.location.href = "dashboard.html";
+    }
 
-        window.location.href = "dashboard.html"
-
-    } else if (username === "vendedora" && password === "123456") {
-
-        localStorage.setItem("auth", "true")
-        localStorage.setItem("username", username)
-        localStorage.setItem("role", "vendedora")
-
-        window.location.href = "dashboard.html"
-
+    else if (username === "admin" && password === "123") {
+        localStorage.setItem("auth", "true");
+        localStorage.setItem("role", "admin");
+        localStorage.setItem("username", "Administrador");
+        window.location.href = "dashboard.html";
     } else {
         alert("Usuário ou senha incorretos!")
     }

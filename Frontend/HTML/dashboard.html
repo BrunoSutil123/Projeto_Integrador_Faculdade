@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../CSS/dashboard.css">
     <title>Pagina inicial / Alexsani Semijoias e Acessórios</title>
 </head>
-</head>
 
 <body>
     <header class="cabecalho">
@@ -26,8 +25,6 @@
                 <div class="listas-Logo">
                     <img id="logoNav" src="../IMG/logo_cliente_B.png" alt="Logo da clinete">
 
-
-                    <!--coloquei a tag a por cima do svg, mas ainda precisa se pensar em uma solução para transformas a ancora em NavList-->
                     <a class="NavList" id="inicio">
                         <li class="ListElement">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -196,12 +193,70 @@
 
 
 
+    <!--Main-------------------------------------------->
 
     <main class="principal">
+
+        <section class="dashboard">
+
+            <h2>Visão Geral</h2>
+
+            <article class="filtros">
+
+                <input type="month" id="filtroMes">
+
+                <select id="filtroVendedora">
+                    <option value="">Todas Vendedoras</option>
+                </select>
+
+            </article>
+
+            <article class="cards">
+
+                <div class="card">
+                    <h3>Vendas Hoje</h3>
+                    <p id="vendasHoje">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>Vendas do Mês</h3>
+                    <p id="vendasMes">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>Vendas do Ano</h3>
+                    <p id="vendasAno">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>Produtos</h3>
+                    <p id="totalProdutos">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Clientes</h3>
+                    <p id="totalClientes">0</p>
+                </div>
+
+                <div class="card alerta">
+                    <h3>Estoque Baixo</h3>
+                    <p id="estoqueBaixo">0</p>
+                </div>
+
+            </article>
+
+            <article class="graficos">
+                <canvas id="graficoVendas">
+
+                </canvas>
+            </article>
+
+        </section>
 
     </main>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../JS/dashboard.js"></script>
 </body>
 

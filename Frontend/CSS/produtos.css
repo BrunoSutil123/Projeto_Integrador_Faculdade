@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-/*min 320px - celular 768px 1100px*/
+/*min 320px - tablet 768px  desktop 1100px*/
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -332,214 +332,228 @@ body {
 
 /*------------------------------------------*/
 
-/* MAIN */
+/* ==========================
+   MAIN
+========================== */
+
 .principal {
+  padding: 80px 10px 20px;
   background-color: var(--fundo);
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================
+   CARD PRINCIPAL
+========================== */
+
+.produtos-container {
+  background: var(--fundo_cabecalho);
+  border-radius: 10px;
+  padding: 12px;
+
+  height: 85vh;
 
   display: flex;
   flex-direction: column;
-
-  align-items: center;
-  gap: 20px;
-
-  padding: 15px;
-  min-height: 100vh;
 }
 
-/* Seções */
-#listaProdutos,
-#cadastroProduto {
-  margin-top: 60px;
-  width: 100%;
-}
+/* ==========================
+   TOPO
+========================== */
 
-/* TOPO (título + ações) */
-.topo-produtos {
+.produtos-header {
   display: flex;
-  flex-direction: column; /* MOBILE: empilhado */
-  align-items: flex-start;
-  gap: 10px;
-
-  background-color: var(--fundo_cabecalho);
-  padding: 15px;
-  border-radius: 10px;
-
-  margin-bottom: 15px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.topo-produtos h2 {
+.produtos-header h2 {
   color: var(--cor_texto);
-  font-size: 18px;
+  font-size: 1.3rem;
 }
 
-/* AÇÕES (input + botão) */
-.acoes {
+.acoes-produtos {
   display: flex;
-  flex-direction: column; /* MOBILE */
-  width: 100%;
+  flex-direction: column;
   gap: 10px;
 }
 
-.acoes input {
+.acoes-produtos input {
   width: 100%;
-  padding: 10px;
-  border-radius: 20px;
   border: none;
   outline: none;
+  padding: 12px;
+  border-radius: 20px;
 }
 
-.acoes button {
-  width: 100%;
-  background-color: var(--cor_btn);
+.acoes-produtos button {
   border: none;
-  padding: 10px;
+  background: var(--cor_btn);
+  padding: 12px;
   border-radius: 20px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.acoes button:hover {
-  background-color: var(--cor_VariacaoBtn);
+/* ==========================
+   LISTA
+========================== */
+
+.lista-produtos {
+  margin-top: 20px;
+  flex: 1;
 }
 
-/* TABELA RESPONSIVA */
-.tabela-produtos {
-  width: 100%;
-  background-color: var(--fundo_cabecalho);
-  border-radius: 10px;
-  overflow: hidden;
+.lista-cabecalho {
+  display: grid;
+  grid-template-columns:
+    2fr
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  color: var(--cor_texto);
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.produto-item {
+  display: grid;
+
+  grid-template-columns:
+    2fr
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  align-items: center;
+
+  color: var(--cor_texto);
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-size: 0.85rem;
+}
+
+/* ==========================
+   PAGINAÇÃO
+========================== */
+.MudarPaginas {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.paginacao {
+  display: flex;
+  gap: 10px;
+
+}
+
+.pagina {
+  background: none;
+  border: none;
+  color: var(--cor_texto);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pagina.ativa {
+  text-decoration: underline;
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+#modalProduto {
+  border: none;
+  border-radius: 15px;
+
+  width: 90%;
+  max-width: 400px;
+
+  background: var(--fundo_cabecalho);
+
+  color: var(--cor_texto);
+
   padding: 20px;
 }
 
-/* ESCONDE CABEÇALHO NO MOBILE */
-.tabela-produtos thead {
-  display: none;
-}
-
-/* LINHAS VIRAM CARDS */
-.tabela-produtos tr {
-  display: block;
-  margin-bottom: 10px;
-  background-color: var(--fundo);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-/* CÉLULAS */
-.tabela-produtos td {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 8px 5px;
-  font-size: 14px;
-  color: var(--cor_texto);
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* LABEL ANTES DO VALOR */
-.tabela-produtos td::before {
-  content: attr(data-label);
-  font-weight: bold;
-}
-
-/* FORMULÁRIO */
-#cadastroProduto {
-  background-color: var(--fundo_cabecalho);
-  padding: 15px;
-  border-radius: 10px;
-}
-
-#cadastroProduto h2 {
-  margin-bottom: 15px;
-  color: var(--cor_texto);
-  font-size: 18px;
+#modalProduto::backdrop {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 #formProduto {
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  :is(h2) {
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
 
 #formProduto input {
-  padding: 10px;
-  border-radius: 5px;
   border: none;
   outline: none;
 
-  background-color: var(--fundo);
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background: var(--fundo);
+
   color: var(--cor_texto);
 }
 
-/* BOTÕES */
-.botoes {
+.modal-botoes {
   display: flex;
-  flex-direction: column; /* MOBILE */
   gap: 10px;
-  margin-top: 10px;
 }
 
-.botoes button {
-  width: 100%;
-  padding: 10px;
+.modal-botoes button {
+  flex: 1;
   border: none;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
+
+  background: var(--cor_btn);
+  font-weight: bold;
   transition: 0.3s;
 }
 
-.botoes button[type="submit"] {
-  background-color: var(--cor_btn);
+.modal-botoes button:hover{
+    background:var(--cor_VariacaoBtn);
 }
 
-.botoes button[type="submit"]:hover {
-  background-color: var(--cor_VariacaoBtn);
-}
+/* ==========================
+   TABLET
+========================== */
 
-#btnCancelar {
-  background-color: #aaa;
-}
-
-#btnCancelar:hover {
-  background-color: #888;
-}
-
-
-/* ========================= */
-/* DESKTOP (>= 1100px) */
-/* ========================= */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .principal {
-    padding: 20px 20px 20px 200px;
+    padding: 90px 20px;
   }
 
-  #listaProdutos,
-  #cadastroProduto {
-    max-width: 1200px;
+  .acoes-produtos {
+    flex-direction: row;
   }
 
-  /* VOLTA TABELA NORMAL */
-  .tabela-produtos thead {
-    display: table-header-group;
-  }
-
-  .tabela-produtos tr {
-    display: table-row;
-    background: none;
-    padding: 0;
-    color: var(--cor_texto);
-  }
-
-  .tabela-produtos td {
-    display: table-cell;
-    padding: 12px;
-  }
-
-  .tabela-produtos td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    opacity: 0.7;
+  .acoes-produtos input {
+    flex: 1;
   }
 }

@@ -196,65 +196,99 @@
 
 
 
+
     <main class="principal">
 
-        <section id="listaProdutos">
-            <div class="topo-produtos">
+        <section class="produtos-container">
+
+            <header class="produtos-header">
+
                 <h2>Produtos</h2>
 
-                <div class="acoes">
-                    <input type="text" placeholder="Buscar produto...">
-                    <button id="btnNovoProduto">+ Incluir Produto</button>
+                <div class="acoes-produtos">
+
+                    <input type="search" id="buscarProduto" placeholder="Buscar produto...">
+
+                    <button id="btnNovoProduto">
+                        + Incluir Produto
+                    </button>
+
                 </div>
-            </div>
 
-            <table class="tabela-produtos">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>SKU</th>
-                        <th>Unidade</th>
-                        <th>Preço</th>
-                        <th>Estoque</th>
-                    </tr>
-                </thead>
+            </header>
 
-                <tbody id="tbodyProdutos">
-                    <!-- JS vai preencher -->
-                </tbody>
-            </table>
+            <section class="lista-produtos">
+
+                <div class="lista-cabecalho">
+
+                    <span>Nome</span>
+                    <span>SKU</span>
+                    <span>Unid.</span>
+                    <span>Preço</span>
+                    <span>Estoque</span>
+
+                </div>
+
+                <div id="listaProdutos">
+
+                    <!-- JS renderiza aqui -->
+
+                </div>
+
+            </section>
+
+            <section class="MudarPaginas">
+                <nav class="paginacao">
+
+                    <button class="pagina ativa">1</button>
+
+                    <button class="pagina">2</button>
+
+                    <button class="pagina">
+                        >
+                    </button>
+
+                </nav>
+            </section>
+
         </section>
 
+        <!-- MODAL -->
 
+        <dialog id="modalProduto">
 
-        <section id="cadastroProduto" style="display: none;">
-            <section id="cadastroProduto" style="display: none;">
+            <form id="formProduto">
 
                 <h2>Novo Produto</h2>
 
-                <form id="formProduto">
+                <input type="text" id="nomeProduto" placeholder="Nome" required>
 
-                    <input type="text" id="nomeProduto" placeholder="Nome do Produto" required>
+                <input type="text" id="skuProduto" placeholder="SKU" required>
 
-                    <input type="text" id="sku" placeholder="Código (SKU)" required>
+                <input type="text" id="unidadeProduto" placeholder="Unidade" required>
 
-                    <input type="text" id="unidade" placeholder="Unidade (ex: Unid.)">
+                <input type="number" id="precoProduto" placeholder="Preço" step="0.01" required>
 
-                    <input type="number" id="preco" placeholder="Preço" step="0.01">
+                <input type="number" id="estoqueProduto" placeholder="Estoque" required>
 
-                    <input type="number" id="estoque" placeholder="Estoque">
+                <div class="modal-botoes">
 
-                    <div class="botoes">
-                        <button type="submit">Salvar</button>
-                        <button type="button" id="btnCancelar">Cancelar</button>
-                    </div>
+                    <button type="submit">
+                        Salvar
+                    </button>
 
-                </form>
+                    <button type="button" id="btnFecharModal">
+                        Cancelar
+                    </button>
 
-            </section>
-        </section>
+                </div>
+
+            </form>
+
+        </dialog>
 
     </main>
+
 
 
     <script src="../JS/produtos.js"></script>

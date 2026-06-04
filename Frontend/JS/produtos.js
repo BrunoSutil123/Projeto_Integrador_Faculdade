@@ -79,78 +79,263 @@ if (role === "vendedora") {
 
 
 
-
 //MAIN:
 
-const lista = document.getElementById("listaProdutos");
-const cadastro = document.getElementById("cadastroProduto");
+// ======================
+// MODAL
+// ======================
 
-const btnNovo = document.getElementById("btnNovoProduto");
-const btnCancelar = document.getElementById("btnCancelar");
+const modalProduto =
+    document.getElementById("modalProduto");
 
-// Abrir cadastro
-btnNovo.addEventListener("click", () => {
-    lista.style.display = "none";
-    cadastro.style.display = "block";
+const btnNovoProduto =
+    document.getElementById("btnNovoProduto");
+
+const btnFecharModal =
+    document.getElementById("btnFecharModal");
+
+const formProduto =
+    document.getElementById("formProduto");
+
+btnNovoProduto.addEventListener("click", () => {
+    modalProduto.showModal();
 });
 
-// Voltar pra lista
-btnCancelar.addEventListener("click", () => {
-    cadastro.style.display = "none";
-    lista.style.display = "block";
+btnFecharModal.addEventListener("click", () => {
+    modalProduto.close();
 });
 
-//dados fake
-let produtosLista = [
-    { nome: "Brinco Ouro", sku: "1-001", unidade: "Unid.", preco: 15.90, estoque: 3 },
-    { nome: "Colar Prata", sku: "1-002", unidade: "Unid.", preco: 25.90, estoque: 5 },
+
+// ======================
+// DADOS
+// ======================
+
+const produtosLista = [
+
+    {
+        nome: "Brinco Ouro",
+        sku: "1-001",
+        unidade: "Unid.",
+        preco: "R$ 15,00",
+        estoque: 3
+    },
+
+    {
+        nome: "Colar Prata",
+        sku: "1-002",
+        unidade: "Unid.",
+        preco: "R$ 25,90",
+        estoque: 5
+    }
+
 ];
 
 
+// ======================
+// PAGINAÇÃO
+// ======================
 
-//renderizar tabela
+let paginaAtual = 1;
+
+const itensPorPagina = 5;
+
+
+// ======================
+// RENDERIZAR PRODUTOS
+// ======================
+
 function renderizarProdutos() {
-    const tbody = document.getElementById("tbodyProdutos");
-    tbody.innerHTML = "";
 
-    produtosLista.forEach(prod => {
-        const tr = document.createElement("tr");
+    const lista =
+        document.getElementById("listaProdutos");
 
-        tr.innerHTML = `
-            <td data-label="Nome">${prod.nome}</td>
-            <td data-label="SKU">${prod.sku}</td>
-            <td data-label="Unidade">${prod.unidade}</td>
-            <td data-label="Preço">R$ ${prod.preco}</td>
-            <td data-label="Estoque">${prod.estoque}</td>
+    lista.innerHTML = "";
+
+    const inicio =
+        (paginaAtual - 1) * itensPorPagina;
+
+    const fim =
+        inicio + itensPorPagina;
+
+    const produtosPagina =
+        produtosLista.slice(inicio, fim);
+
+    produtosPagina.forEach(produto => {
+
+        lista.innerHTML += `
+            <article class="produto-item">
+
+                <span>${produto.nome}</span>
+
+                <span>${produto.sku}</span>
+
+                <span>${produto.unidade}</span>
+
+                <span>${produto.preco}</span>
+
+                <span>${produto.estoque}</span>
+
+            </article>
         `;
 
-        tbody.appendChild(tr);
     });
+
+    renderizarPaginacao();
+
 }
 
-renderizarProdutos();
+
+// ======================
+// RENDERIZAR PAGINAÇÃO
+// ======================
+
+function renderizarPaginacao() {
+
+    const paginacao =
+        document.querySelector(".paginacao");
+
+    paginacao.innerHTML = "";
+
+    const totalPaginas =
+        Math.ceil(
+            produtosLista.length /
+            itensPorPagina
+        );
+
+    // Botão anterior
+
+    if (paginaAtual > 1) {
+
+        const btnAnterior =
+            document.createElement("button");
+
+        btnAnterior.textContent = "<";
+
+        btnAnterior.classList.add("pagina");
+
+        btnAnterior.addEventListener("click", () => {
+
+            paginaAtual--;
+
+            renderizarProdutos();
+
+        });
+
+        paginacao.appendChild(btnAnterior);
+
+    }
+
+    // Números das páginas
+
+    for (let i = 1; i <= totalPaginas; i++) {
+
+        const botao =
+            document.createElement("button");
+
+        botao.textContent = i;
+
+        botao.classList.add("pagina");
+
+        if (i === paginaAtual) {
+            botao.classList.add("ativa");
+        }
+
+        botao.addEventListener("click", () => {
+
+            paginaAtual = i;
+
+            renderizarProdutos();
+
+        });
+
+        paginacao.appendChild(botao);
+
+    }
+
+    // Botão próximo
+
+    if (paginaAtual < totalPaginas) {
+
+        const btnProximo =
+            document.createElement("button");
+
+        btnProximo.textContent = ">";
+
+        btnProximo.classList.add("pagina");
+
+        btnProximo.addEventListener("click", () => {
+
+            paginaAtual++;
+
+            renderizarProdutos();
+
+        });
+
+        paginacao.appendChild(btnProximo);
+
+    }
+
+}
 
 
-//salvar novo produto
-const form = document.getElementById("formProduto");
+// ======================
+// CADASTRAR PRODUTO
+// ======================
 
-form.addEventListener("submit", (e) => {
+formProduto.addEventListener("submit", (e) => {
+
     e.preventDefault();
 
-    const novoProduto = {
-        nome: document.getElementById("nomeProduto").value,
-        sku: document.getElementById("sku").value,
-        unidade: document.getElementById("unidade").value,
-        preco: document.getElementById("preco").value,
-        estoque: document.getElementById("estoque").value
-    };
+    const nome =
+        document.getElementById("nomeProduto").value;
 
-    produtosLista.push(novoProduto);
+    const sku =
+        document.getElementById("skuProduto").value;
+
+    const unidade =
+        document.getElementById("unidadeProduto").value;
+
+    const preco =
+        document.getElementById("precoProduto").value;
+
+    const estoque =
+        document.getElementById("estoqueProduto").value;
+
+    produtosLista.push({
+
+        nome,
+        sku,
+        unidade,
+
+        preco:
+            "R$ " +
+            Number(preco)
+                .toFixed(2)
+                .replace(".", ","),
+
+        estoque
+
+    });
+
+    // Vai automaticamente para a última página
+
+    paginaAtual =
+        Math.ceil(
+            produtosLista.length /
+            itensPorPagina
+        );
 
     renderizarProdutos();
 
-    form.reset();
+    formProduto.reset();
 
-    cadastro.style.display = "none";
-    lista.style.display = "block";
+    modalProduto.close();
+
 });
+
+
+// ======================
+// INICIAR TELA
+// ======================
+
+renderizarProdutos();

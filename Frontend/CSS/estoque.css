@@ -3,13 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-/*min 320px - celular 768px 1100px*/
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*Tabela de cores com darkMode*/
+/* Variáveis */
 :root {
   --fundo: rgba(247, 247, 247, 1);
   --fundo_cabecalho: rgb(218, 218, 218);
@@ -19,6 +18,7 @@ body {
   --cor_btn: rgba(240, 168, 28, 1);
   --hoverBtn: rgb(156, 156, 156);
   --cor_VariacaoBtn: rgb(192, 128, 0);
+  --cor_alerta: rgb(210, 50, 50);
 }
 
 .darkMode {
@@ -30,11 +30,11 @@ body {
   --cor_btn: rgba(240, 168, 28, 1);
   --hoverBtn: rgb(94, 94, 94);
   --cor_VariacaoBtn: rgb(192, 128, 0);
+  --cor_alerta: rgb(255, 90, 90);
 }
 
-/*Estilização para mudança tema:*/
+/* Botão tema */
 #mudancaTema {
-  /*Botão de mudança*/
   height: 30px;
   width: 30px;
   padding: 0;
@@ -46,300 +46,294 @@ body {
   align-items: center;
   transition: 0.3s;
   cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    height: 40px;
-    width: 40px;
-  }
-
-  /*Transição entre modos claro e escuro:*/
-  :is(svg) {
-    fill: rgb(255, 255, 255);
-    height: 20px;
-  }
-
-  :is(svg):last-child {
-    display: none;
-  }
 }
-
-#mudancaTema:hover {
-  background-color: var(--cor_VariacaoBtn);
+@media screen and (min-width: 768px) {
+  #mudancaTema { height: 40px; width: 40px; }
 }
+#mudancaTema :is(svg) { fill: rgb(255, 255, 255); height: 20px; }
+#mudancaTema :is(svg):last-child { display: none; }
+#mudancaTema:hover { background-color: var(--cor_VariacaoBtn); }
+#mudancaTema:active { transform: scale(0.95); }
+.darkMode #mudancaTema svg:first-child { display: none; }
+.darkMode #mudancaTema svg:last-child  { display: block; }
 
-#mudancaTema:active {
-  transform: scale(0.95);
-}
-
-/*Aparece e desaparece*/
-.darkMode #mudancaTema svg:first-child {
-  display: none;
-}
-
-.darkMode #mudancaTema svg:last-child {
-  display: block;
-}
-
-/*-----------------------------------------*/
-
-/*Cabeçalho*/
+/* Cabeçalho */
 .cabecalho {
   background-color: var(--fundo_cabecalho);
-
   position: fixed;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   padding: 10px;
-
-  @media screen and (min-width: 1100px) {
-    padding: 10px 10px 10px 0;
-  }
-
-  .navegacao {
-    display: flex;
-    align-items: center;
-
-    #titulo {
-      color: var(--cor_texto);
-      font-size: 24px;
-      margin-left: 15px;
-    }
-  }
-
-  .hamburger {
-    /*hamburguer menu button*/
-    display: block;
-
-    font-size: 24px;
-    background: none;
-    border: none;
-    padding: 5px;
-
-    cursor: pointer;
-
-    @media screen and (min-width: 1100px) {
-      display: none;
-    }
-
-    #iconMenu {
-      /*hamburguer menu icon*/
-      display: flex;
-      align-items: center;
-      width: 24px;
-      height: 24px;
-
-      @media screen and (min-width: 768px) {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
-  .hamburger:hover {
-    background-color: var(--hoverBtn);
-    border-radius: 50px;
-  }
-
-  .nav-links {
-    /*Lista de navegação*/
-    display: none;
-
-    justify-content: space-between;
-    flex-direction: column;
-
-    background-color: var(--fundo_cabecalho);
-    border-radius: 10px;
-
-    margin-bottom: 5px;
-    position: absolute;
-    top: 65px;
-    padding: 10px 0 10px 10px;
-
-    gap: 20px;
-
-    list-style: none;
-
-    @media screen and (min-width: 1100px) {
-      display: flex;
-
-      justify-content: space-between;
-      border-radius: 0 10px 10px 0;
-      height: 87vh;
-    }
-
-    .listas-Logo {
-      /*div para estilização específica*/
-      display: flex;
-      flex-direction: column;
-
-      gap: 5px;
-    }
-
-    #logoNav {
-      /*Logo Loja*/
-      width: 80px;
-      margin-right: 10px;
-
-      @media screen and (min-width: 1100px) {
-        width: 130px;
-      }
-    }
-
-    .NavList {
-      /*tag a de ancora da navegação*/
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-
-      text-decoration: none;
-      font-size: 12px;
-      color: var(--cor_texto);
-
-      padding: 5px;
-      padding-right: 15px;
-      gap: 10px;
-      border-radius: 3px 0 0px 3px;
-
-      cursor: pointer;
-      transition: 0.3s;
-
-      @media screen and (min-width: 1100px) {
-        font-size: 16px;
-      }
-    }
-    .NavList:hover {
-      background-color: var(--fundo);
-    }
-    .NavList:active {
-      transform: scale(0.95);
-    }
-
-    /*Elemento da lista de navegação*/
-    .ListElement {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      color: var(--cor_texto);
-
-      :is(svg) {
-        height: 16px;
-
-        @media screen and (min-width: 768px) {
-          height: 18px;
-
-          @media screen and (min-width: 1100px) {
-            height: 20px;
-          }
-        }
-      }
-    }
-
-    #estoque {
-      /*Mudar o id de acordo com a página*/
-      background-color: var(--fundo);
-    }
-
-    .configNav {
-      /*Campo de mudança de tema e btn sair*/
-      display: flex;
-      justify-content: space-between;
-      margin-right: 10px;
-
-      #exitCount {
-        /*Botão sair - logout*/
-        border: none;
-        border-radius: 5px;
-        background-color: var(--cor_btn);
-
-        font-size: 13px;
-        padding: 3px 7px;
-
-        transition: 0.3s;
-        cursor: pointer;
-      }
-      #exitCount:hover {
-        background-color: var(--cor_VariacaoBtn);
-      }
-      #exitCount:active {
-        transform: scale(0.95);
-      }
-    }
-  }
-  .nav-links.active {
-    /*Aparece navegação quando clica*/
-    display: flex;
-  }
-
-  :is(picture) {
-    /*Foto User e nome*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    gap: 5px;
-
-    #imgUser {
-      width: 24px;
-      height: 24px;
-
-      @media screen and (min-width: 768px) {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    #user-name {
-      /*Nome usuario logado*/
-      color: var(--cor_texto);
-      font-size: 13px;
-
-      @media screen and (min-width: 768px) {
-        font-size: 15px;
-      }
-    }
-  }
+  z-index: 100;
+}
+@media screen and (min-width: 1100px) {
+  .cabecalho { padding: 10px 10px 10px 0; }
 }
 
-/*--------------------------------------------------------*/
+.navegacao { display: flex; align-items: center; }
+#titulo { color: var(--cor_texto); font-size: 24px; margin-left: 15px; }
 
-/*Mudando a cor dos textos e dos ícones da navegação de acordo com o tema*/
-.darkMode :is(svg):first-child {
-  color: white;
+/* Hamburguer */
+.hamburger {
+  display: block;
+  font-size: 24px;
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
 }
+@media screen and (min-width: 1100px) { .hamburger { display: none; } }
+#iconMenu { display: flex; align-items: center; width: 24px; height: 24px; }
+@media screen and (min-width: 768px) { #iconMenu { width: 30px; height: 30px; } }
+.hamburger:hover { background-color: var(--hoverBtn); border-radius: 50px; }
 
-#iconMenu,
-#imgUser {
-  fill: rgb(0, 0, 0);
-  height: 20px;
-}
-
-#imgUser:last-child {
+/* Nav links */
+.nav-links {
   display: none;
-}
-
-.darkMode #iconMenu:first-child,
-.darkMode #imgUser:first-child {
-  fill: rgb(255, 255, 255);
-}
-
-.darkMode #imgUse:last-child {
-  fill: rgb(0, 0, 0);
-}
-
-/*------------------------------------------*/
-
-/*Principal:*/
-.principal {
-  display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  background-color: var(--fundo_cabecalho);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  padding: 10px 0 10px 10px;
+  gap: 20px;
+  list-style: none;
+  z-index: 99;
+}
+@media screen and (min-width: 1100px) {
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 10px 10px 0;
+    height: 87vh;
+  }
+}
+.nav-links.active { display: flex; }
+
+.listas-Logo { display: flex; flex-direction: column; gap: 5px; }
+#logoNav { width: 80px; margin-right: 10px; }
+@media screen and (min-width: 1100px) { #logoNav { width: 130px; } }
+
+.NavList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  font-size: 12px;
+  color: var(--cor_texto);
+  padding: 5px;
+  padding-right: 15px;
+  gap: 10px;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media screen and (min-width: 1100px) { .NavList { font-size: 16px; } }
+.NavList:hover  { background-color: var(--fundo); }
+.NavList:active { transform: scale(0.95); }
+
+.ListElement { display: flex; align-items: center; justify-content: center; color: var(--cor_texto); }
+.ListElement :is(svg) { height: 16px; }
+@media screen and (min-width: 768px)  { .ListElement :is(svg) { height: 18px; } }
+@media screen and (min-width: 1100px) { .ListElement :is(svg) { height: 20px; } }
+
+/* Página ativa */
+#Estoque { background-color: var(--fundo); }
+
+.configNav { display: flex; justify-content: space-between; margin-right: 10px; }
+#exitCount {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--cor_btn);
+  font-size: 13px;
+  padding: 3px 7px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#exitCount:hover  { background-color: var(--cor_VariacaoBtn); }
+#exitCount:active { transform: scale(0.95); }
+
+/* User picture */
+.cabecalho :is(picture) {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  height: 200vh;
-  padding: 20px;
-  background-color: var(--fundo);
+  font-weight: bold;
+  gap: 5px;
 }
+#imgUser { width: 24px; height: 24px; }
+@media screen and (min-width: 768px) { #imgUser { width: 30px; height: 30px; } }
+#user-name { color: var(--cor_texto); font-size: 13px; }
+@media screen and (min-width: 768px) { #user-name { font-size: 15px; } }
+
+/* Ícones tema */
+.darkMode :is(svg):first-child { color: white; }
+#iconMenu, #imgUser { fill: rgb(0, 0, 0); height: 20px; }
+#imgUser:last-child { display: none; }
+.darkMode #iconMenu:first-child,
+.darkMode #imgUser:first-child { fill: rgb(255, 255, 255); }
+
+/* ==========================
+   MAIN
+========================== */
+.fundo { background-color: var(--fundo); min-height: 100vh; }
+
+.principal { padding: 80px 10px 20px; background-color: var(--fundo); }
+
+/* ==========================
+   CONTAINER
+========================== */
+.estoque-container {
+  background: var(--fundo_cabecalho);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 1100px) {
+  .estoque-container { margin-left: 170px; }
+}
+
+/* ==========================
+   TOPO
+========================== */
+.estoque-header { display: flex; flex-direction: column; gap: 12px; }
+.estoque-header :is(h2) { color: var(--cor_texto); font-size: 1.3rem; }
+
+.acoes-estoque { display: flex; flex-direction: column; gap: 10px; }
+.acoes-estoque :is(input) {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 20px;
+}
+.acoes-estoque :is(button) {
+  border: none;
+  background: var(--cor_btn);
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .acoes-estoque :is(button) { width: 220px; margin-left: auto; }
+}
+
+/* ==========================
+   LISTA
+========================== */
+.lista-estoque {
+  margin-top: 20px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.lista-cabecalho {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 0.8fr 1fr 0.8fr;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor_texto);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  min-width: 300px;
+}
+@media screen and (min-width: 768px) {
+  .lista-cabecalho { font-size: 1rem; }
+}
+
+.estoque-item {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 0.8fr 1fr 0.8fr;
+  align-items: center;
+  color: var(--cor_texto);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  font-size: 0.8rem;
+  min-width: 300px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 4px;
+}
+.estoque-item:hover { background-color: rgba(128, 128, 128, 0.1); }
+@media screen and (min-width: 768px) {
+  .estoque-item { font-size: 0.9rem; }
+}
+
+/* Coluna estoque com badge */
+.col-estoque {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Badge de alerta de estoque baixo */
+.badge-alerta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--cor_alerta);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* ==========================
+   PAGINAÇÃO
+========================== */
+.MudarPaginas { margin-top: auto; padding-top: 15px; }
+.paginacao { display: flex; gap: 10px; }
+.pagina { background: none; border: none; color: var(--cor_texto); font-weight: bold; cursor: pointer; }
+.pagina.ativa { text-decoration: underline; }
+
+/* ==========================
+   MODAL
+========================== */
+#modalEstoque {
+  border: none;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  background: var(--fundo_cabecalho);
+  color: var(--cor_texto);
+  padding: 20px;
+}
+#formEstoque {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#formEstoque :is(h2) { text-align: center; margin-bottom: 10px; }
+#formEstoque :is(input) {
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--fundo);
+  color: var(--cor_texto);
+  font-size: 1rem;
+  width: 100%;
+}
+.modal-botoes { display: flex; gap: 10px; }
+.modal-botoes :is(button) {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--cor_btn);
+  font-weight: bold;
+  transition: 0.3s;
+}
+.modal-botoes button:hover { background: var(--cor_VariacaoBtn); }
+#modalEstoque::backdrop { background: rgba(0, 0, 0, 0.6); }

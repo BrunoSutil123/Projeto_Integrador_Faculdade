@@ -335,15 +335,13 @@ body {
 /* ==========================
    MAIN
 ========================== */
-
+.fundo{
+  background-color: var(--fundo);
+  height: 100vh;
+}
 .principal {
   padding: 80px 10px 20px;
   background-color: var(--fundo);
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ==========================
@@ -355,10 +353,12 @@ body {
   border-radius: 10px;
   padding: 12px;
 
-  height: 85vh;
-
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 1100px) {
+    margin-left: 170px;
+  }
 }
 
 /* ==========================
@@ -369,33 +369,40 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
 
-.produtos-header h2 {
-  color: var(--cor_texto);
-  font-size: 1.3rem;
-}
+  :is(h2) {
+    color: var(--cor_texto);
+    font-size: 1.3rem;
+  }
 
-.acoes-produtos {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+  .acoes-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-.acoes-produtos input {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 12px;
-  border-radius: 20px;
-}
+    :is(input) {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 12px;
+      border-radius: 20px;
+    }
 
-.acoes-produtos button {
-  border: none;
-  background: var(--cor_btn);
-  padding: 12px;
-  border-radius: 20px;
-  cursor: pointer;
+    :is(button) {
+      border: none;
+      background: var(--cor_btn);
+      padding: 12px;
+      border-radius: 20px;
+      cursor: pointer;
+
+      font-weight: bold;
+
+      @media screen and (min-width: 768px) {
+        width: 300px;
+        margin-left: auto;
+      }
+    }
+  }
 }
 
 /* ==========================
@@ -405,25 +412,29 @@ body {
 .lista-produtos {
   margin-top: 20px;
   flex: 1;
-}
 
-.lista-cabecalho {
-  display: grid;
-  grid-template-columns:
-    2fr
-    1fr
-    1fr
-    1fr
-    1fr;
+  .lista-cabecalho {
+    display: grid;
+    grid-template-columns:
+      2fr
+      1fr
+      1fr
+      1fr
+      1fr;
 
-  font-size: 0.8rem;
-  font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 600;
 
-  color: var(--cor_texto);
+    color: var(--cor_texto);
 
-  padding-bottom: 10px;
+    padding-bottom: 10px;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .produto-item {
@@ -445,6 +456,10 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   font-size: 0.85rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.9rem;
+  }
 }
 
 /* ==========================
@@ -453,24 +468,23 @@ body {
 .MudarPaginas {
   margin-top: auto;
   padding-top: 15px;
-}
 
-.paginacao {
-  display: flex;
-  gap: 10px;
+  .paginacao {
+    display: flex;
+    gap: 10px;
 
-}
+    .pagina {
+      background: none;
+      border: none;
+      color: var(--cor_texto);
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.pagina {
-  background: none;
-  border: none;
-  color: var(--cor_texto);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.pagina.ativa {
-  text-decoration: underline;
+    .pagina.ativa {
+      text-decoration: underline;
+    }
+  }
 }
 
 /* ==========================
@@ -485,75 +499,55 @@ body {
   max-width: 400px;
 
   background: var(--fundo_cabecalho);
-
   color: var(--cor_texto);
-
   padding: 20px;
+
+  #formProduto {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    :is(h2) {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    :is(input) {
+      border: none;
+      outline: none;
+
+      padding: 12px;
+
+      border-radius: 10px;
+
+      background: var(--fundo);
+
+      color: var(--cor_texto);
+    }
+
+    .modal-botoes {
+      display: flex;
+      gap: 10px;
+
+      :is(button) {
+        flex: 1;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        background: var(--cor_btn);
+        font-weight: bold;
+        transition: 0.3s;
+      }
+    }
+  }
 }
 
 #modalProduto::backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
 
-#formProduto {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  :is(h2) {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-}
-
-#formProduto input {
-  border: none;
-  outline: none;
-
-  padding: 12px;
-
-  border-radius: 10px;
-
-  background: var(--fundo);
-
-  color: var(--cor_texto);
-}
-
-.modal-botoes {
-  display: flex;
-  gap: 10px;
-}
-
-.modal-botoes button {
-  flex: 1;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  background: var(--cor_btn);
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.modal-botoes button:hover{
-    background:var(--cor_VariacaoBtn);
-}
-
-/* ==========================
-   TABLET
-========================== */
-
-@media (min-width: 768px) {
-  .principal {
-    padding: 90px 20px;
-  }
-
-  .acoes-produtos {
-    flex-direction: row;
-  }
-
-  .acoes-produtos input {
-    flex: 1;
-  }
+.modal-botoes button:hover {
+  background: var(--cor_VariacaoBtn);
 }

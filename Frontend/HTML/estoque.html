@@ -40,7 +40,7 @@
                         </li>
                         Início
                     </a>
-                    
+
                     <a href="../HTML/produtos.html" class="NavList" id="produtos">
                         <li class="ListElement">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -196,9 +196,74 @@
 
 
 
-    <main class="principal">
+    <div class="fundo">
+        <main class="principal">
 
-    </main>
+            <section class="estoque-container">
+
+                <header class="estoque-header">
+
+                    <h2>Estoque</h2>
+
+                    <div class="acoes-estoque">
+
+                        <input type="search" id="buscarEstoque" placeholder="Buscar produto...">
+
+                        <button id="btnGerenciarProduto">
+                            Gerenciar Produto
+                        </button>
+
+                    </div>
+
+                </header>
+
+                <section class="lista-estoque">
+
+                    <div class="lista-cabecalho">
+                        <span>Nome</span>
+                        <span>Código (SKU)</span>
+                        <span>Unidade</span>
+                        <span>Preço</span>
+                        <span>Estoque</span>
+                    </div>
+
+                    <div id="listaEstoque">
+                        <!-- JS renderiza aqui -->
+                    </div>
+
+                </section>
+
+                <section class="MudarPaginas">
+                    <nav class="paginacao"></nav>
+                </section>
+
+            </section>
+
+            <!-- MODAL -->
+
+            <dialog id="modalEstoque">
+
+                <form id="formEstoque">
+
+                    <h2>Gerenciar Produto</h2>
+
+                    <input type="text" id="nomeEstoque" placeholder="Nome" required>
+                    <input type="text" id="skuEstoque" placeholder="Código (SKU)" required>
+                    <input type="text" id="unidadeEstoque" placeholder="Unidade" required>
+                    <input type="number" id="precoEstoque" placeholder="Preço" step="0.01" required>
+                    <input type="number" id="qtdEstoque" placeholder="Estoque" required>
+
+                    <div class="modal-botoes">
+                        <button type="submit">Salvar</button>
+                        <button type="button" id="btnFecharModal">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </dialog>
+
+        </main>
+    </div>
 
 
     <script src="../JS/estoque.js"></script>

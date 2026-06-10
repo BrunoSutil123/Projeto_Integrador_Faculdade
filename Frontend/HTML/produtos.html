@@ -196,99 +196,99 @@
 
 
 
+    <div class="fundo">
+        <main class="principal">
 
-    <main class="principal">
+            <section class="produtos-container">
 
-        <section class="produtos-container">
+                <header class="produtos-header">
 
-            <header class="produtos-header">
+                    <h2>Produtos</h2>
 
-                <h2>Produtos</h2>
+                    <div class="acoes-produtos">
 
-                <div class="acoes-produtos">
+                        <input type="search" id="buscarProduto" placeholder="Buscar produto...">
 
-                    <input type="search" id="buscarProduto" placeholder="Buscar produto...">
+                        <button id="btnNovoProduto">
+                            + Incluir Produto
+                        </button>
 
-                    <button id="btnNovoProduto">
-                        + Incluir Produto
-                    </button>
+                    </div>
 
-                </div>
+                </header>
 
-            </header>
+                <section class="lista-produtos">
 
-            <section class="lista-produtos">
+                    <div class="lista-cabecalho">
 
-                <div class="lista-cabecalho">
+                        <span>Nome</span>
+                        <span>SKU</span>
+                        <span>Unid.</span>
+                        <span>Preço</span>
+                        <span>Estoque</span>
 
-                    <span>Nome</span>
-                    <span>SKU</span>
-                    <span>Unid.</span>
-                    <span>Preço</span>
-                    <span>Estoque</span>
+                    </div>
 
-                </div>
+                    <div id="listaProdutos">
 
-                <div id="listaProdutos">
+                        <!-- JS renderiza aqui -->
 
-                    <!-- JS renderiza aqui -->
+                    </div>
 
-                </div>
+                </section>
+
+                <section class="MudarPaginas">
+                    <nav class="paginacao">
+
+                        <button class="pagina ativa">1</button>
+
+                        <button class="pagina">2</button>
+
+                        <button class="pagina">
+                            >
+                        </button>
+
+                    </nav>
+                </section>
 
             </section>
 
-            <section class="MudarPaginas">
-                <nav class="paginacao">
+            <!-- MODAL -->
 
-                    <button class="pagina ativa">1</button>
+            <dialog id="modalProduto">
 
-                    <button class="pagina">2</button>
+                <form id="formProduto">
 
-                    <button class="pagina">
-                        >
-                    </button>
+                    <h2>Novo Produto</h2>
 
-                </nav>
-            </section>
+                    <input type="text" id="nomeProduto" placeholder="Nome" required>
 
-        </section>
+                    <input type="text" id="skuProduto" placeholder="SKU" required>
 
-        <!-- MODAL -->
+                    <input type="text" id="unidadeProduto" placeholder="Unidade" required>
 
-        <dialog id="modalProduto">
+                    <input type="number" id="precoProduto" placeholder="Preço" step="0.01" required>
 
-            <form id="formProduto">
+                    <input type="number" id="estoqueProduto" placeholder="Estoque" required>
 
-                <h2>Novo Produto</h2>
+                    <div class="modal-botoes">
 
-                <input type="text" id="nomeProduto" placeholder="Nome" required>
+                        <button type="submit">
+                            Salvar
+                        </button>
 
-                <input type="text" id="skuProduto" placeholder="SKU" required>
+                        <button type="button" id="btnFecharModal">
+                            Cancelar
+                        </button>
 
-                <input type="text" id="unidadeProduto" placeholder="Unidade" required>
+                    </div>
 
-                <input type="number" id="precoProduto" placeholder="Preço" step="0.01" required>
+                </form>
 
-                <input type="number" id="estoqueProduto" placeholder="Estoque" required>
+            </dialog>
 
-                <div class="modal-botoes">
-
-                    <button type="submit">
-                        Salvar
-                    </button>
-
-                    <button type="button" id="btnFecharModal">
-                        Cancelar
-                    </button>
-
-                </div>
-
-            </form>
-
-        </dialog>
-
-    </main>
-
+        </main>
+    </div>
 
 
     <script src="../JS/produtos.js"></script>

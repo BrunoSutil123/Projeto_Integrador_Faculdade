@@ -196,9 +196,91 @@
 
 
 
-    <main class="principal">
+    <div class="fundo">
+        <main class="principal">
 
-    </main>
+            <section class="produtos-container">
+
+                <header class="produtos-header">
+
+                    <h2>Vendas</h2>
+
+                    <div class="acoes-produtos">
+
+                        <input type="search" id="buscarVenda" placeholder="Buscar venda...">
+
+                        <button id="btnNovaVenda">
+                            + Incluir Venda
+                        </button>
+
+                    </div>
+
+                </header>
+
+                <section class="lista-produtos">
+
+                    <div class="lista-cabecalho">
+
+                        <span>N°</span>
+                        <span>Data</span>
+                        <span>Cliente</span>
+                        <span>CPF/CNPJ</span>
+                        <span>Total</span>
+
+                    </div>
+
+                    <div id="listaVendas">
+
+                        <!-- JS renderiza aqui -->
+
+                    </div>
+
+                </section>
+
+                <section class="MudarPaginas">
+                    <nav class="paginacao">
+                    </nav>
+                </section>
+
+            </section>
+
+            <!-- MODAL -->
+
+            <dialog id="modalVenda">
+
+                <form id="formVenda">
+
+                    <h2>Nova Venda</h2>
+
+                    <input type="text" id="numeroVenda" placeholder="N°" required>
+
+                    <input type="date" id="dataVenda" required>
+
+                    <input type="text" id="clienteVenda" placeholder="Cliente" required>
+
+                    <input type="text" id="cpfCnpjVenda" placeholder="CPF/CNPJ" required>
+
+                    <input type="number" id="totalVenda" placeholder="Total" step="0.01" required>
+
+                    <div class="modal-botoes">
+
+                        <button type="submit">
+                            Salvar
+                        </button>
+
+                        <button type="button" id="btnFecharModal">
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </dialog>
+
+        </main>
+    </div>
+
 
 
     <script src="../JS/vendas.js"></script>

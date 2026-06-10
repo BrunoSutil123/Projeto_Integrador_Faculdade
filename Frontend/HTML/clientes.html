@@ -178,9 +178,9 @@
                     </button>
                 </div>
             </ul>
-            
+
             <h1 id="titulo">Clientes</h1>
-        
+
         </nav>
 
 
@@ -198,9 +198,72 @@
 
 
 
-    <main class="principal">
+    <div class="fundo">
+        <main class="principal">
 
-    </main>
+            <section class="clientes-container">
+
+                <header class="clientes-header">
+
+                    <h2>Clientes</h2>
+
+                    <div class="acoes-clientes">
+
+                        <input type="search" id="buscarCliente" placeholder="Buscar cliente...">
+
+                        <button id="btnNovoCliente">
+                            + Novo Cliente
+                        </button>
+
+                    </div>
+
+                </header>
+
+                <section class="lista-clientes">
+
+                    <div class="lista-cabecalho">
+                        <span>Nome</span>
+                        <span>Telefone</span>
+                        <span>E-Mail</span>
+                    </div>
+
+                    <div id="listaClientes">
+                        <!-- JS renderiza aqui -->
+                    </div>
+
+                </section>
+
+                <section class="MudarPaginas">
+                    <nav class="paginacao"></nav>
+                </section>
+
+            </section>
+
+            <!-- MODAL -->
+
+            <dialog id="modalCliente">
+
+                <form id="formCliente">
+
+                    <h2>Novo Cliente</h2>
+
+                    <input type="text" id="nomeCliente" placeholder="Nome" required>
+
+                    <input type="tel" id="telefoneCliente" placeholder="Telefone" required>
+
+                    <input type="email" id="emailCliente" placeholder="E-Mail" required>
+
+                    <div class="modal-botoes">
+                        <button type="submit">Salvar</button>
+                        <button type="button" id="btnFecharModal">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </dialog>
+
+        </main>
+    </div>
 
 
     <script src="../JS/clientes.js"></script>

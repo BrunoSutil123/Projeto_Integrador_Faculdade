@@ -111,23 +111,7 @@ btnFecharModal.addEventListener("click", () => {
 // ======================
 
 const produtosLista = [
-
-    {
-        nome: "Brinco Ouro",
-        sku: "1-001",
-        unidade: "Unid.",
-        preco: "R$ 15,00",
-        estoque: 3
-    },
-
-    {
-        nome: "Colar Prata",
-        sku: "1-002",
-        unidade: "Unid.",
-        preco: "R$ 25,90",
-        estoque: 5
-    }
-
+    
 ];
 
 
@@ -137,7 +121,8 @@ const produtosLista = [
 
 let paginaAtual = 1;
 
-const itensPorPagina = 5;
+const itensPorPagina = 20;
+
 
 
 // ======================
@@ -300,6 +285,18 @@ formProduto.addEventListener("submit", (e) => {
 
     const estoque =
         document.getElementById("estoqueProduto").value;
+
+    const skuExiste = produtosLista.some(produto =>
+        produto.sku.toLowerCase().trim() === sku.toLowerCase().trim()
+    );
+
+    if (skuExiste) {
+
+        alert("Já existe um produto cadastrado com este SKU.");
+
+        return;
+
+    }
 
     produtosLista.push({
 

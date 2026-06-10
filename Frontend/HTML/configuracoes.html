@@ -178,9 +178,9 @@
                     </button>
                 </div>
             </ul>
-            
+
             <h1 id="titulo">Configurações</h1>
-        
+
         </nav>
 
 
@@ -199,7 +199,65 @@
 
 
     <main class="principal">
+        <div class="geralinf">
 
+            <section class="config-section">
+                <h2 class="config-subtitle">Meu Perfil</h2>
+                <form id="form-perfil" class="config-form">
+                    <div class="input-group">
+                        <label for="perf-nome">Nome Completo</label>
+                        <input type="text" id="perf-nome" class="input-config" value="Alexsani Silva" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="perf-senha">Nova Senha</label>
+                        <input type="password" id="perf-senha" class="input-config"
+                            placeholder="Digite para alterar...">
+                    </div>
+                    <button type="submit" class="btn-salvar">Atualizar Perfil</button>
+                </form>
+            </section>
+
+            <section class="config-section" id="secao-gerencial">
+                <h2 class="config-subtitle">Parâmetros do Sistema (Admin)</h2>
+                <form id="form-parametros" class="config-form">
+                    <div class="input-group">
+                        <label for="param-comissao">Comissão Padrão das Vendedoras (%)</label>
+                        <input type="number" id="param-comissao" class="input-config" min="0" max="100" value="10"
+                            required>
+                    </div>
+                    <div class="input-group">
+                        <label for="param-alerta">Alerta de Estoque Baixo (Qtd. Mínima de Peças)</label>
+                        <input type="number" id="param-alerta" class="input-config" min="1" value="5" required>
+                    </div>
+                    <button type="submit" class="btn-salvar">Salvar Parâmetros</button>
+                </form>
+            </section>
+
+            <section class="config-section">
+                <h2 class="config-subtitle">Segurança e Dados</h2>
+                <div class="botoes-dados">
+                    <button type="button" id="btn-exportar" class="btn-dados-secundario">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" x2="12" y1="3" y2="15" />
+                        </svg>
+                        Exportar Backup (JSON)
+                    </button>
+                    <button type="button" id="btn-reset" class="btn-dados-perigo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18" />
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                        </svg>
+                        Limpar Dados Locais
+                    </button>
+                </div>
+            </section>
+
+        </div>
     </main>
 
 

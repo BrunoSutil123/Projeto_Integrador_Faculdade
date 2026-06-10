@@ -197,7 +197,65 @@
 
 
     <main class="principal">
+        <div class="geralinf">
+            <section class="barra-filtros">
+                <div class="filtro-grupo">
+                    <input type="month" id="filtroData" class="input-relatorio" value="2026-06">
+                    <select id="filtroVendedora" class="input-relatorio">
+                        <option value="todas">Todas Vendedoras</option>
+                        <option value="mariana">Mariana</option>
+                        <option value="paula">Paula</option>
+                    </select>
+                </div>
+                <button id="btnExportar" class="btn-principal">Exportar PDF</button>
+            </section>
 
+            <section class="container-cards">
+                <div class="card-metrica">
+                    <h3>Faturamento Mensal</h3>
+                    <p class="valor-card" id="fatMensal">R$ 0,00</p>
+                    <span class="indicador positivo" id="momIndicador">+0.0% vs mês anterior</span>
+                </div>
+                <div class="card-metrica">
+                    <h3>Acumulado do Ano</h3>
+                    <p class="valor-card" id="fatAnual">R$ 0,00</p>
+                    <span class="indicador positivo" id="yoyIndicador">+0.0% vs ano anterior</span>
+                </div>
+                <div class="card-metrica">
+                    <h3>Ticket Médio</h3>
+                    <p class="valor-card" id="ticketMedio">R$ 0,00</p>
+                    <span class="subtexto">Média por venda</span>
+                </div>
+            </section>
+
+            <section class="container-grafico">
+                <h3 class="titulo-sessao">Desempenho Temporal (MoM)</h3>
+                <div class="wrapper-canvas">
+                    <canvas id="graficoComparativo"></canvas>
+                </div>
+            </section>
+
+            <section class="container-tabelas">
+                <div class="bloco-tabela">
+                    <h3 class="titulo-sessao">Vendas por Faixa de Valor</h3>
+                    <div class="responsivo-tabela">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Faixa de Valor</th>
+                                    <th>Qtd.</th>
+                                    <th>% Qtd.</th>
+                                    <th>Total</th>
+                                    <th>% Fat.</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpoTabelaFaixas">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
 

@@ -195,11 +195,91 @@
 
 
 
+    <div class="fundo">
+        <main class="principal">
 
-    <main class="principal">
+            <section class="fornecedores-container">
 
-    </main>
+                <header class="fornecedores-header">
 
+                    <h2>Fornecedores</h2>
+
+                    <div class="acoes-fornecedores">
+
+                        <input type="search" id="buscarFornecedor" placeholder="Buscar fornecedor...">
+
+                        <button id="btnNovoFornecedor">
+                            + Incluir Fornecedor
+                        </button>
+
+                    </div>
+
+                </header>
+
+                <section class="lista-fornecedores">
+
+                    <div class="lista-cabecalho">
+
+                        <span>Nome</span>
+
+                        <span>CNPJ</span>
+
+                        <span>Telefone</span>
+
+                        <span>Ações</span>
+
+                    </div>
+
+                    <div id="listaFornecedores">
+
+                        <!-- JS renderiza aqui -->
+
+                    </div>
+
+                </section>
+
+                <section class="MudarPaginas">
+
+                    <nav class="paginacao">
+
+                    </nav>
+
+                </section>
+
+            </section>
+
+            <!-- MODAL -->
+
+            <dialog id="modalFornecedor">
+
+                <form id="formFornecedor">
+
+                    <h2>Novo Fornecedor</h2>
+
+                    <input type="text" id="nomeFornecedor" placeholder="Nome do fornecedor" required>
+
+                    <input type="text" id="cnpjFornecedor" placeholder="CNPJ" required>
+
+                    <input type="text" id="razaoFornecedor" placeholder="Razão Social" required>
+
+                    <input type="text" id="telefoneFornecedor" placeholder="Telefone" required>
+
+                    <input type="text" id="enderecoFornecedor" placeholder="Endereço" required>
+
+                    <div class="modal-botoes">
+
+                        <button type="submit">
+                            Salvar
+                        </button>
+
+                        <button type="button" id="btnFecharModal">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </dialog>
+        </main>
+    </div>
 
     <script src="../JS/fornecedores.js"></script>
 </body>

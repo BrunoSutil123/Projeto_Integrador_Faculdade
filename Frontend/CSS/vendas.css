@@ -34,7 +34,6 @@ body {
 
 /*Estilização para mudança tema:*/
 #mudancaTema {
-  /*Botão de mudança*/
   height: 30px;
   width: 30px;
   padding: 0;
@@ -52,7 +51,6 @@ body {
     width: 40px;
   }
 
-  /*Transição entre modos claro e escuro:*/
   :is(svg) {
     fill: rgb(255, 255, 255);
     height: 20px;
@@ -71,7 +69,6 @@ body {
   transform: scale(0.95);
 }
 
-/*Aparece e desaparece*/
 .darkMode #mudancaTema svg:first-child {
   display: none;
 }
@@ -80,18 +77,13 @@ body {
   display: block;
 }
 
-/*-----------------------------------------*/
-
 /*Cabeçalho*/
 .cabecalho {
   background-color: var(--fundo_cabecalho);
-
   position: fixed;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   padding: 10px;
 
@@ -111,14 +103,11 @@ body {
   }
 
   .hamburger {
-    /*hamburguer menu button*/
     display: block;
-
     font-size: 24px;
     background: none;
     border: none;
     padding: 5px;
-
     cursor: pointer;
 
     @media screen and (min-width: 1100px) {
@@ -126,7 +115,6 @@ body {
     }
 
     #iconMenu {
-      /*hamburguer menu icon*/
       display: flex;
       align-items: center;
       width: 24px;
@@ -144,42 +132,32 @@ body {
   }
 
   .nav-links {
-    /*Lista de navegação*/
     display: none;
-
     justify-content: space-between;
     flex-direction: column;
-
     background-color: var(--fundo_cabecalho);
     border-radius: 10px;
-
     margin-bottom: 5px;
     position: absolute;
     top: 65px;
     padding: 10px 0 10px 10px;
-
     gap: 20px;
-
     list-style: none;
 
     @media screen and (min-width: 1100px) {
       display: flex;
-
       justify-content: space-between;
       border-radius: 0 10px 10px 0;
       height: 87vh;
     }
 
     .listas-Logo {
-      /*div para estilização específica*/
       display: flex;
       flex-direction: column;
-
       gap: 5px;
     }
 
     #logoNav {
-      /*Logo Loja*/
       width: 80px;
       margin-right: 10px;
 
@@ -189,20 +167,16 @@ body {
     }
 
     .NavList {
-      /*tag a de ancora da navegação*/
       display: flex;
       align-items: center;
       justify-content: flex-start;
-
       text-decoration: none;
       font-size: 12px;
       color: var(--cor_texto);
-
       padding: 5px;
       padding-right: 15px;
       gap: 10px;
       border-radius: 3px 0 0px 3px;
-
       cursor: pointer;
       transition: 0.3s;
 
@@ -217,12 +191,10 @@ body {
       transform: scale(0.95);
     }
 
-    /*Elemento da lista de navegação*/
     .ListElement {
       display: flex;
       align-items: center;
       justify-content: center;
-
       color: var(--cor_texto);
 
       :is(svg) {
@@ -239,25 +211,20 @@ body {
     }
 
     #vendas {
-      /*Mudar o id de acordo com a página*/
       background-color: var(--fundo);
     }
 
     .configNav {
-      /*Campo de mudança de tema e btn sair*/
       display: flex;
       justify-content: space-between;
       margin-right: 10px;
 
       #exitCount {
-        /*Botão sair - logout*/
         border: none;
         border-radius: 5px;
         background-color: var(--cor_btn);
-
         font-size: 13px;
         padding: 3px 7px;
-
         transition: 0.3s;
         cursor: pointer;
       }
@@ -270,12 +237,10 @@ body {
     }
   }
   .nav-links.active {
-    /*Aparece navegação quando clica*/
     display: flex;
   }
 
   :is(picture) {
-    /*Foto User e nome*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,7 +258,6 @@ body {
     }
 
     #user-name {
-      /*Nome usuario logado*/
       color: var(--cor_texto);
       font-size: 13px;
 
@@ -304,9 +268,7 @@ body {
   }
 }
 
-/*--------------------------------------------------------*/
-
-/*Mudando a cor dos textos e dos ícones da navegação de acordo com o tema*/
+/*Ícones da navegação*/
 .darkMode :is(svg):first-child {
   color: white;
 }
@@ -330,16 +292,207 @@ body {
   fill: rgb(0, 0, 0);
 }
 
-/*------------------------------------------*/
+/* ==========================
+   MAIN
+========================== */
+.fundo {
+  background-color: var(--fundo);
+  height: 100vh;
+}
 
-/*Principal:*/
 .principal {
+  padding: 80px 10px 20px;
+  background-color: var(--fundo);
+}
+
+/* ==========================
+   CARD PRINCIPAL
+========================== */
+
+.produtos-container {
+  background: var(--fundo_cabecalho);
+  border-radius: 10px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 1100px) {
+    margin-left: 170px;
+  }
+}
+
+/* ==========================
+   TOPO
+========================== */
+
+.produtos-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  :is(h2) {
+    color: var(--cor_texto);
+    font-size: 1.3rem;
+  }
+
+  .acoes-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    :is(input) {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 12px;
+      border-radius: 20px;
+    }
+
+    :is(button) {
+      border: none;
+      background: var(--cor_btn);
+      padding: 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+
+      @media screen and (min-width: 768px) {
+        width: 300px;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+/* ==========================
+   LISTA
+========================== */
+
+.lista-produtos {
+  margin-top: 20px;
+  flex: 1;
+
+  .lista-cabecalho {
+    display: grid;
+    grid-template-columns:
+      1fr
+      1fr
+      2fr
+      2fr
+      1fr;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cor_texto);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.produto-item {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    2fr
+    2fr
+    1fr;
+
   align-items: center;
-  justify-content: center;
-  gap: 30px;
-  height: 200vh;
+  color: var(--cor_texto);
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================
+   PAGINAÇÃO
+========================== */
+.MudarPaginas {
+  margin-top: auto;
+  padding-top: 15px;
+
+  .paginacao {
+    display: flex;
+    gap: 10px;
+
+    .pagina {
+      background: none;
+      border: none;
+      color: var(--cor_texto);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .pagina.ativa {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+#modalVenda {
+  border: none;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  background: var(--fundo_cabecalho);
+  color: var(--cor_texto);
   padding: 20px;
-  background-color: var(--fundo);
+
+  #formVenda {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    :is(h2) {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    :is(input) {
+      border: none;
+      outline: none;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--fundo);
+      color: var(--cor_texto);
+    }
+
+    .modal-botoes {
+      display: flex;
+      gap: 10px;
+
+      :is(button) {
+        flex: 1;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        background: var(--cor_btn);
+        font-weight: bold;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+#modalVenda::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-botoes button:hover {
+  background: var(--cor_VariacaoBtn);
 }

@@ -87,6 +87,7 @@ body {
   background-color: var(--fundo_cabecalho);
 
   position: fixed;
+  z-index: 10000; /* CORREÇÃO BUG MENU: Garante que a barra inteira fique acima do conteúdo principal */
 
   display: flex;
   align-items: center;
@@ -161,6 +162,11 @@ body {
     gap: 20px;
 
     list-style: none;
+    
+    /* CORREÇÃO BUG MENU: Força largura mínima e prioridade visual para mobile/tablet */
+    z-index: 10001;
+    width: 220px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 
     @media screen and (min-width: 1100px) {
       display: flex;
@@ -168,6 +174,10 @@ body {
       justify-content: space-between;
       border-radius: 0 10px 10px 0;
       height: 87vh;
+      
+      /* Reseta as propriedades de mobile quando estiver no computador */
+      width: auto;
+      box-shadow: none;
     }
 
     .listas-Logo {
@@ -333,13 +343,239 @@ body {
 /*------------------------------------------*/
 
 /*Principal:*/
+/* --- ESTILIZAÇÃO DA PÁGINA DE RELATÓRIOS (MOBILE FIRST) --- */
+
+/* Configuração base da Main para telas pequenas */
 .principal {
+  background-color: var(--fundo);
+}
+
+.geralinf {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  height: 200vh;
-  padding: 20px;
-  background-color: var(--fundo);
+  gap: 25px;
+
+  padding: 70px 20px 20px 10px;
+  @media screen and (min-width: 1100px) {
+    margin-left: 170px;
+  }
+}
+
+/* Barra de Filtros - Empilhada no Mobile */
+.barra-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
+}
+
+.filtro-grupo {
+  display: flex;
+  flex-direction: column; /* Inputs um embaixo do outro no celular */
+  gap: 10px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    width: 180px;
+  }
+}
+
+.input-relatorio {
+  background-color: var(--cor_input);
+  color: #000;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  width: 100%; /* Ocupa a largura total da tela do celular */
+}
+
+.btn-principal {
+  background-color: var(--cor_btn);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%; /* Botão expandido no mobile para facilitar o clique */
+}
+
+.btn-principal:hover {
+  background-color: var(--cor_VariacaoBtn);
+}
+
+/* Bloco de Cards de Métricas - Empilhamento Vertical Padrão */
+.container-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.card-metrica {
+  background-color: var(--fundo_cabecalho);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  :is(h3) {
+    font-size: 13px;
+    color: var(--cor_texto);
+    opacity: 0.8;
+  }
+
+  .valor-card {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--cor_titulo);
+  }
+}
+
+.indicador {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.indicador.positivo {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.indicador.negativo {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.subtexto {
+  font-size: 11px;
+  color: var(--cor_texto);
+  opacity: 0.6;
+}
+
+/* Container do Gráfico */
+.container-grafico {
+  background-color: var(--fundo_cabecalho);
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.titulo-sessao {
+  font-size: 16px;
+  color: var(--cor_titulo);
+  font-weight: 600;
+}
+
+.wrapper-canvas {
+  position: relative;
+  width: 100%;
+  height: 260px; /* Altura controlada para não sumir na tela do celular */
+}
+
+/* Tabelas e Dados Percentuais */
+.container-tabelas {
+  width: 100%;
+}
+
+.bloco-tabela {
+  background-color: var(--fundo_cabecalho);
+  padding: 15px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+/* ESSENCIAL PARA MOBILE: Cria uma rolagem interna suave se a tabela for maior que a tela do celular */
+.responsivo-tabela {
+  overflow-x: auto;
+  margin-top: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap; /* Evita que o texto quebre linhas dentro da célula no mobile */
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  color: var(--cor_texto);
+  font-size: 13px;
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--cor_titulo);
+  font-weight: 600;
+}
+
+.darkMode th {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   APENAS COMPUTADOR (Telas acima de 1100px)
+   Ajustes de responsividade nos Filtros e Cards
+   ========================================================================== */
+@media screen and (min-width: 1100px) {
+  
+  /* Ajuste da Barra de Filtros no Computador */
+  .barra-filtros {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .filtro-grupo {
+    flex-direction: row;
+    width: auto;
+    gap: 15px;
+  }
+
+  .input-relatorio {
+    width: 220px; /* Faz com que o texto de selecionar vendedora apareça todo */
+  }
+
+  .btn-principal {
+    width: auto;
+    padding: 12px 25px; /* Botão Exportar PDF sem quebras e inteiro */
+  }
+
+  /* Ajuste dos Cards de Informações no Computador */
+  .container-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ficam um do lado do outro (proporcionais) */
+    gap: 20px;
+  }
+
+  .card-metrica {
+    padding: 22px;
+  }
+
+  .card-metrica .valor-card {
+    font-size: 28px;
+  }
 }

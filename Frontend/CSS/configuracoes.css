@@ -339,7 +339,180 @@ body {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  height: 200vh;
-  padding: 20px;
   background-color: var(--fundo);
+  min-height: 100vh;
+}
+
+/*------------------------------------------*/
+
+
+/* Container Geral com espaçamento Mobile-First */
+.geralinf {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 85px 15px 30px 15px; /* Margem superior generosa para não bater no header fixo */
+}
+
+/* Blocos/Cards de Configurações */
+.config-section {
+  background-color: var(--fundo_cabecalho);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.config-subtitle {
+  font-size: 18px;
+  color: var(--cor_titulo);
+  font-weight: 600;
+  margin-bottom: 18px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.15);
+  padding-bottom: 8px;
+}
+
+.config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Grupos de Labels e Inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor_texto);
+}
+
+.input-config {
+  background-color: var(--cor_input);
+  color: #000;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+/* Botões de Ação */
+.btn-salvar {
+  background-color: var(--cor_btn);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.btn-salvar:hover {
+  background-color: var(--cor_VariacaoBtn);
+}
+
+.btn-salvar:active, .btn-dados-secundario:active, .btn-dados-perigo:active {
+  transform: scale(0.98);
+}
+
+/* Alinhamento dos botões de segurança */
+.botoes-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-dados-secundario {
+  background-color: var(--hoverBtn);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-dados-secundario:hover {
+  opacity: 0.9;
+}
+
+.btn-dados-perigo {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-dados-perigo:hover {
+  background-color: #c0392b;
+}
+
+/* ==========================================================================
+   APENAS COMPUTADOR (Telas acima de 1100px)
+   Adapta os formulários para não ficarem esticados e organiza lado a lado
+   ========================================================================== */
+@media screen and (min-width: 1100px) {
+  .geralinf {
+    margin-left: 170px; /* Alinhamento correto casado com a sua sidebar desktop */
+    padding: 90px 40px 30px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide as seções em duas colunas elegantes */
+    gap: 30px;
+  }
+
+  /* Faz a seção de segurança ocupar a largura total das duas colunas abaixo */
+  .config-section:last-child {
+    grid-column: span 2;
+  }
+
+  .config-form {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .input-group {
+    flex: 1;
+  }
+
+  .btn-salvar {
+    width: auto;
+    padding: 12px 30px;
+  }
+
+  .botoes-dados {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .btn-dados-secundario, .btn-dados-perigo {
+    width: auto;
+    padding: 12px 20px;
+  }
 }
